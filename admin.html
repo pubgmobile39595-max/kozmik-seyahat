@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MeloniTour — Yönetim Paneli</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='80' text-anchor='middle'>⚙️</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css?v=1" />
+</head>
+<body>
+
+<!-- LOGIN EKRANI -->
+<div class="login" id="loginScreen">
+  <div class="login__box">
+    <div class="login__logo">🌴</div>
+    <h1 class="login__title">MeloniTour</h1>
+    <p class="login__sub">Yönetim Paneli</p>
+    <form id="loginForm" class="login__form">
+      <label>Kullanıcı Adı<input type="text" id="loginUser" value="yilmaz" required autocomplete="username" /></label>
+      <label>Şifre<input type="password" id="loginPass" placeholder="meloni2024" required autocomplete="current-password" /></label>
+      <button type="submit" class="login__btn">🔐 Giriş Yap</button>
+      <p class="login__hint">İlk şifre: <code>meloni2024</code> · Girişten sonra Ayarlar'dan değiştirin</p>
+      <div class="login__error" id="loginError"></div>
+    </form>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin" id="adminPanel" style="display:none">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__head">
+      <div class="sidebar__logo">🌴 MeloniTour</div>
+      <button class="sidebar__close" id="sidebarClose" type="button">✕</button>
+    </div>
+    <nav class="sidebar__nav">
+      <a href="#" class="sidebar__link active" data-page="dashboard">📊 Kontrol Odası</a>
+      <a href="#" class="sidebar__link" data-page="tours">🌍 Turlar</a>
+      <a href="#" class="sidebar__link" data-page="bookings">📋 Rezervasyonlar <span class="badge" id="badgeBookings">0</span></a>
+      <a href="#" class="sidebar__link" data-page="customers">👥 Müşteriler</a>
+      <a href="#" class="sidebar__link" data-page="messages">💬 Mesajlar <span class="badge" id="badgeMessages">0</span></a>
+      <a href="#" class="sidebar__link" data-page="destinations">📍 Destinasyonlar</a>
+      <a href="#" class="sidebar__link" data-page="coupons">🎟️ Kuponlar</a>
+      <a href="#" class="sidebar__link" data-page="blog">📝 Blog & Haberler</a>
+      <a href="#" class="sidebar__link" data-page="settings">⚙️ Site Ayarları</a>
+      <a href="#" class="sidebar__link" data-page="security">🔒 Güvenlik</a>
+    </nav>
+    <div class="sidebar__foot">
+      <div class="sidebar__user">
+        <div class="sidebar__avatar" id="userAvatar">Y</div>
+        <div>
+          <div class="sidebar__name">Yılmaz Çalışkan</div>
+          <div class="sidebar__role">Yönetici</div>
+        </div>
+      </div>
+      <button class="sidebar__logout" id="logoutBtn">🚪 Çıkış</button>
+    </div>
+  </aside>
+  <div class="sidebar__overlay" id="sidebarOverlay"></div>
+
+  <!-- MAIN -->
+  <main class="main">
+    <header class="topbar">
+      <button class="topbar__menu" id="menuBtn" type="button">☰</button>
+      <h2 class="topbar__title" id="pageTitle">Kontrol Odası</h2>
+      <div class="topbar__actions">
+        <a href="index.html" target="_blank" class="topbar__btn">🌐 Siteyi Gör</a>
+        <div class="topbar__time" id="topbarTime">--:--</div>
+      </div>
+    </header>
+
+    <div class="content" id="content">
+
+      <!-- DASHBOARD -->
+      <section class="page active" data-page="dashboard">
+        <div class="stats">
+          <div class="stat stat--blue">
+            <div class="stat__icon">💰</div>
+            <div class="stat__label">Toplam Gelir</div>
+            <div class="stat__value" id="statIncome">₺0</div>
+            <div class="stat__sub" id="statIncomeSub">+0% bu ay</div>
+          </div>
+          <div class="stat stat--green">
+            <div class="stat__icon">📋</div>
+            <div class="stat__label">Rezervasyonlar</div>
+            <div class="stat__value" id="statBookings">0</div>
+            <div class="stat__sub" id="statBookingsSub">Bugün: 0</div>
+          </div>
+          <div class="stat stat--orange">
+            <div class="stat__icon">👥</div>
+            <div class="stat__label">Müşteriler</div>
+            <div class="stat__value" id="statCustomers">0</div>
+            <div class="stat__sub">Kayıtlı</div>
+          </div>
+          <div class="stat stat--purple">
+            <div class="stat__icon">🌍</div>
+            <div class="stat__label">Aktif Turlar</div>
+            <div class="stat__value" id="statTours">0</div>
+            <div class="stat__sub">Yayında</div>
+          </div>
+        </div>
+
+        <div class="dash-grid">
+          <div class="card">
+            <div class="card__head"><h3>📊 Son 7 Gün Rezervasyonlar</h3></div>
+            <div class="chart" id="chartWeek"></div>
+          </div>
+          <div class="card">
+            <div class="card__head"><h3>🔥 En Popüler Turlar</h3></div>
+            <div id="popularTours"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h3>📥 Son Rezervasyonlar</h3>
+            <button class="btn-link" data-goto="bookings">Tümünü Gör →</button>
+          </div>
+          <div id="recentBookings"></div>
+        </div>
+      </section>
+
+      <!-- TURLAR -->
+      <section class="page" data-page="tours">
+        <div class="page-head">
+          <button class="btn btn--primary" id="addTourBtn">➕ Yeni Tur Ekle</button>
+          <input type="text" id="searchTours" placeholder="🔍 Tur ara..." class="search-input" />
+        </div>
+        <div id="toursList"></div>
+      </section>
+
+      <!-- REZERVASYONLAR -->
+      <section class="page" data-page="bookings">
+        <div class="page-head">
+          <select id="filterBooking" class="search-input">
+            <option value="all">Tüm Durumlar</option>
+            <option value="new">Yeni</option>
+            <option value="confirmed">Onaylandı</option>
+            <option value="completed">Tamamlandı</option>
+            <option value="cancelled">İptal</option>
+          </select>
+        </div>
+        <div id="bookingsList"></div>
+      </section>
+
+      <!-- MÜŞTERİLER -->
+      <section class="page" data-page="customers">
+        <div class="page-head">
+          <input type="text" id="searchCustomers" placeholder="🔍 Müşteri ara..." class="search-input" />
+        </div>
+        <div id="customersList"></div>
+      </section>
+
+      <!-- MESAJLAR -->
+      <section class="page" data-page="messages">
+        <div id="messagesList"></div>
+      </section>
+
+      <!-- DESTİNASYONLAR -->
+      <section class="page" data-page="destinations">
+        <div class="page-head">
+          <button class="btn btn--primary" id="addDestBtn">➕ Yeni Destinasyon</button>
+        </div>
+        <div id="destList"></div>
+      </section>
+
+      <!-- KUPONLAR -->
+      <section class="page" data-page="coupons">
+        <div class="page-head">
+          <button class="btn btn--primary" id="addCouponBtn">➕ Yeni Kupon</button>
+        </div>
+        <div id="couponList"></div>
+      </section>
+
+      <!-- BLOG -->
+      <section class="page" data-page="blog">
+        <div class="page-head">
+          <button class="btn btn--primary" id="addBlogBtn">➕ Yeni Yazı</button>
+        </div>
+        <div id="blogList"></div>
+      </section>
+
+      <!-- AYARLAR -->
+      <section class="page" data-page="settings">
+        <div class="card">
+          <div class="card__head"><h3>⚙️ Site Ayarları</h3></div>
+          <form id="settingsForm" class="form">
+            <div class="form__row">
+              <label>Telefon<input type="tel" name="phone" id="setPhone" /></label>
+              <label>WhatsApp No<input type="tel" name="whatsapp" id="setWhatsapp" /></label>
+            </div>
+            <div class="form__row">
+              <label>E-posta<input type="email" name="email" id="setEmail" /></label>
+              <label>Şirket Adı<input type="text" name="company" id="setCompany" /></label>
+            </div>
+            <label>Adres<textarea name="address" id="setAddress" rows="2"></textarea></label>
+            <div class="form__row">
+              <label>Çalışma Saatleri<input type="text" name="hours" id="setHours" /></label>
+              <label>TÜRSAB No<input type="text" name="tursab" id="setTursab" /></label>
+            </div>
+            <div class="form__row">
+              <label>Instagram<input type="text" name="instagram" id="setInstagram" /></label>
+              <label>Facebook<input type="text" name="facebook" id="setFacebook" /></label>
+            </div>
+            <label>Site Başlığı<input type="text" name="title" id="setTitle" /></label>
+            <label>Site Açıklaması<textarea name="desc" id="setDesc" rows="2"></textarea></label>
+            <button type="submit" class="btn btn--primary">💾 Kaydet</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- GÜVENLİK -->
+      <section class="page" data-page="security">
+        <div class="card">
+          <div class="card__head"><h3>🔒 Şifre Değiştir</h3></div>
+          <form id="passwordForm" class="form">
+            <label>Mevcut Şifre<input type="password" id="oldPass" required /></label>
+            <div class="form__row">
+              <label>Yeni Şifre<input type="password" id="newPass" required minlength="6" /></label>
+              <label>Yeni Şifre (Tekrar)<input type="password" id="newPass2" required minlength="6" /></label>
+            </div>
+            <button type="submit" class="btn btn--primary">🔄 Şifreyi Değiştir</button>
+          </form>
+        </div>
+        <div class="card" style="margin-top:20px">
+          <div class="card__head"><h3>💾 Veri Yönetimi</h3></div>
+          <p style="color:var(--text-dim);font-size:.9rem;margin-bottom:16px">Tüm verileri yedekleyin veya sıfırlayın</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn--primary" id="exportBtn">📥 Verileri Yedekle (JSON)</button>
+            <button class="btn btn--ghost" id="importBtn">📤 Yedekten Yükle</button>
+            <button class="btn btn--danger" id="resetBtn">🗑️ Tüm Verileri Sıfırla</button>
+          </div>
+          <input type="file" id="importFile" accept="application/json" style="display:none" />
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal__content">
+    <button class="modal__close" id="modalClose" type="button">✕</button>
+    <h3 class="modal__title" id="modalTitle"></h3>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="admin.js?v=1"></script>
+</body>
+            </html>
