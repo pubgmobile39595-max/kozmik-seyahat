@@ -3,42 +3,38 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kozmik Seyahat — Uzay Turizmi</title>
-<meta name="description" content="Kozmik Seyahat - Dünyanın ilk uzay turizmi ajansı." />
-<meta name="theme-color" content="#000010" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='80' text-anchor='middle'>🌌</text></svg>" />
+<title>Dünya Turu — Seyahat Acentesi</title>
+<meta name="description" content="Dünya Turu - Hayalinizdeki yerlere gidin. Kapadokya, Paris, Tokyo, Dubai ve daha fazlası." />
+<meta name="theme-color" content="#0a1a2e" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='80' text-anchor='middle'>🌍</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=100" />
-<link rel="stylesheet" href="style-extra.css?v=100" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1" />
+<link rel="stylesheet" href="style-extra.css?v=1" />
 </head>
 <body>
 
 <div class="loader" id="loader">
   <div class="loader__inner">
-    <div class="loader__rocket">🚀</div>
-    <div class="loader__text">Kozmik Seyahat</div>
+    <div class="loader__globe">🌍</div>
+    <div class="loader__text">Dünya Turu</div>
     <div class="loader__bar"><div class="loader__fill" id="loaderFill"></div></div>
     <div class="loader__pct" id="loaderPct">0%</div>
   </div>
 </div>
 
-<canvas id="starfield" class="starfield"></canvas>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-dot" id="cursorDot"></div>
-
 <nav class="nav" id="nav">
   <div class="container nav__inner">
     <a href="#" class="nav__logo">
-      <span class="nav__logo-icon">🌌</span>
-      <span class="nav__logo-text">KOZMİK<span class="grad">SEYAHAT</span></span>
+      <span class="nav__logo-icon">🌍</span>
+      <span class="nav__logo-text">DÜNYA<span class="grad">TURU</span></span>
     </a>
     <div class="nav__links">
       <a href="#destinations">Destinasyonlar</a>
-      <a href="#fleet">Araçlar</a>
-      <a href="#crew">Ekip</a>
-      <a href="#pricing">Fiyatlar</a>
+      <a href="#tours">Turlar</a>
+      <a href="#packages">Paketler</a>
+      <a href="#reviews">Yorumlar</a>
       <a href="#faq">SSS</a>
     </div>
     <div class="nav__actions">
@@ -50,123 +46,53 @@
 </nav>
 
 <section class="hero">
-  <div class="hero__grid-bg"></div>
+  <div class="hero__bg"></div>
+  <div class="hero__overlay"></div>
   <div class="container hero__inner">
-    <div class="hero__badge"><span class="dot"></span> 2027 İlk Uçuş · Cape Canaveral</div>
+    <div class="hero__badge"><span class="dot"></span> 45 Ülke · 200+ Şehir · 7/24 Destek</div>
     <h1 class="hero__title">
-      <span class="hero__title-line">Uzaya</span>
-      <span class="hero__title-line grad">adım at</span>
-      <span class="hero__title-line">hayal etme,</span>
+      <span class="hero__title-line">Dünyayı</span>
+      <span class="hero__title-line grad">keşfet</span>
+      <span class="hero__title-line">hayalini</span>
       <span class="hero__title-line">yaşa</span>
     </h1>
-    <p class="hero__sub">Dünyanın ilk ticari uzay turizmi ajansı. 3 günlük yörünge deneyimi, sıfır yer çekimi, Dünya'nın muhteşem manzarası.</p>
-    <div class="hero__cta">
-      <button class="btn btn--primary btn--lg" id="heroBook">🚀 Rezervasyon Yap</button>
-      <button class="btn btn--ghost btn--lg" id="simBtn">▶️ Simülatörü Dene</button>
+    <p class="hero__sub">Kapadokya'dan Paris'e, Tokyo'dan Dubai'ye. Hayalinizdeki tüm destinasyonlar, uygun fiyatlarla. Uzman rehberler eşliğinde unutulmaz bir yolculuk.</p>
+    <div class="hero__search">
+      <input type="text" id="heroSearch" placeholder="Nereye gitmek istersin? (Paris, Tokyo, Kapadokya...)" />
+      <button class="btn btn--primary" id="heroSearchBtn">🔍 Ara</button>
     </div>
-    <div class="countdown" id="countdown">
-      <div class="cd-box"><div class="cd-num" id="cdDays">--</div><div class="cd-label">Gün</div></div>
-      <div class="cd-box"><div class="cd-num" id="cdHours">--</div><div class="cd-label">Saat</div></div>
-      <div class="cd-box"><div class="cd-num" id="cdMin">--</div><div class="cd-label">Dakika</div></div>
-      <div class="cd-box"><div class="cd-num" id="cdSec">--</div><div class="cd-label">Saniye</div></div>
+    <div class="hero__cta">
+      <a href="#destinations" class="btn btn--primary btn--lg">🌟 Turları Keşfet</a>
+      <a href="#packages" class="btn btn--ghost btn--lg">📦 Paketleri Gör</a>
     </div>
     <div class="hero__stats">
-      <div><strong class="counter" data-target="12">0</strong><span>Uçuş</span></div>
-      <div><strong class="counter" data-target="38">0</strong><span>Turist</span></div>
-      <div><strong class="counter" data-target="670">0</strong><span>Saat</span></div>
-      <div><strong class="counter" data-target="100">0</strong><span>% Güvenlik</span></div>
+      <div><strong class="counter" data-target="45000">0</strong><span>Mutlu Müşteri</span></div>
+      <div><strong class="counter" data-target="45">0</strong><span>Ülke</span></div>
+      <div><strong class="counter" data-target="200">0</strong><span>Şehir</span></div>
+      <div><strong class="counter" data-target="15">0</strong><span>Yıllık Deneyim</span></div>
     </div>
   </div>
-  <div class="hero__scroll">KAYDIR <span>↓</span></div>
 </section>
 
 <section class="section" id="destinations">
   <div class="container">
     <div class="section__head">
       <span class="eyebrow">Destinasyonlar</span>
-      <h2>Seyahat <span class="grad">rotaları</span></h2>
-      <p class="section__lead">Dünya yörüngesinden Ay'a kadar 5 farklı rota</p>
+      <h2>Popüler <span class="grad">yerler</span></h2>
+      <p class="section__lead">En çok tercih edilen 8 destinasyon</p>
     </div>
-    <div class="planets" id="planets">
-      <div class="planet active" data-route="lunar">
-        <div class="planet__sphere" style="--color1:#c9c9c9;--color2:#7a7a7a"><div class="planet__ring"></div></div>
-        <div class="planet__name">Ay Yörüngesi</div>
-      </div>
-      <div class="planet" data-route="leo">
-        <div class="planet__sphere" style="--color1:#4a90e2;--color2:#2c5f9e"><div class="planet__ring"></div></div>
-        <div class="planet__name">Alçak Yörünge</div>
-      </div>
-      <div class="planet" data-route="iss">
-        <div class="planet__sphere" style="--color1:#f5a623;--color2:#b07410"><div class="planet__ring"></div></div>
-        <div class="planet__name">ISS Ziyareti</div>
-      </div>
-      <div class="planet" data-route="mars">
-        <div class="planet__sphere" style="--color1:#e07b53;--color2:#a34a2a"><div class="planet__ring"></div></div>
-        <div class="planet__name">Mars Geçişi</div>
-      </div>
-      <div class="planet" data-route="deep">
-        <div class="planet__sphere" style="--color1:#8e44ad;--color2:#5b2c6f"><div class="planet__ring"></div></div>
-        <div class="planet__name">Derin Uzay</div>
-      </div>
-    </div>
-    <div class="route-detail" id="routeDetail">
-      <div class="route-detail__content">
-        <div class="route-detail__left">
-          <div class="route-detail__badge">⭐ EN POPÜLER</div>
-          <h3 class="route-detail__title" id="routeTitle">Ay Yörüngesi</h3>
-          <p class="route-detail__sub" id="routeSub">3 günlük Ay yörüngesi deneyimi</p>
-          <div class="route-detail__stats">
-            <div><span class="route-detail__label">Mesafe</span><strong id="routeDistance">384.400 km</strong></div>
-            <div><span class="route-detail__label">Süre</span><strong id="routeDuration">3 gün</strong></div>
-            <div><span class="route-detail__label">Fiyat</span><strong id="routePrice">₺2.500.000</strong></div>
-          </div>
-          <button class="btn btn--primary" id="routeBook">Bu Rotayı Seç</button>
-        </div>
-        <div class="route-detail__right">
-          <canvas id="routeCanvas" width="400" height="400"></canvas>
-        </div>
-      </div>
-    </div>
+    <div class="destinations" id="destGrid"></div>
   </div>
 </section>
 
-<section class="section section--alt" id="fleet">
+<section class="section section--alt" id="tours">
   <div class="container">
     <div class="section__head">
-      <span class="eyebrow">Araçlar</span>
-      <h2>Uzay <span class="grad">filomuz</span></h2>
+      <span class="eyebrow">Turlar</span>
+      <h2>Öne çıkan <span class="grad">turlarımız</span></h2>
+      <p class="section__lead">Rehberli, her şey dahil, garantili</p>
     </div>
-    <div class="fleet" id="fleetGrid"></div>
-  </div>
-</section>
-
-<section class="section" id="viewer">
-  <div class="container">
-    <div class="section__head">
-      <span class="eyebrow">3D Önizleme</span>
-      <h2>Kabini <span class="grad">keşfet</span></h2>
-    </div>
-    <div class="viewer">
-      <div class="viewer__screen" id="viewerScreen">
-        <div class="viewer__label">Kokpit Görünümü</div>
-      </div>
-      <div class="viewer__controls">
-        <button class="viewer__btn active" data-view="cockpit">🎮 Kokpit</button>
-        <button class="viewer__btn" data-view="cabin">💺 Kabin</button>
-        <button class="viewer__btn" data-view="engine">⚙️ Motor</button>
-        <button class="viewer__btn" data-view="docking">🛰️ Kenetlenme</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section--alt" id="crew">
-  <div class="container">
-    <div class="section__head">
-      <span class="eyebrow">Ekip</span>
-      <h2>Deneyimli <span class="grad">astronotlar</span></h2>
-    </div>
-    <div class="crew" id="crewGrid"></div>
+    <div class="tours" id="tourGrid"></div>
   </div>
 </section>
 
@@ -174,33 +100,28 @@
   <div class="container">
     <div class="section__head">
       <span class="eyebrow">Hesaplayıcı</span>
-      <h2>Seyahatinizi <span class="grad">planlayın</span></h2>
+      <h2>Tatilinizi <span class="grad">planlayın</span></h2>
     </div>
     <div class="calc">
       <div class="calc__form">
-        <label>Kişi Sayısı<input type="number" id="calcPeople" value="2" min="1" max="6" /></label>
-        <label>Rota
-          <select id="calcRoute">
-            <option value="1500000">Alçak Yörünge · ₺1.500.000</option>
-            <option value="2000000">ISS Ziyareti · ₺2.000.000</option>
-            <option value="2500000" selected>Ay Yörüngesi · ₺2.500.000</option>
-            <option value="15000000">Mars Geçişi · ₺15.000.000</option>
-            <option value="85000000">Derin Uzay · ₺85.000.000</option>
-          </select>
-        </label>
+        <label>Nereye?<select id="calcDest"></select></label>
+        <label>Kaç kişi?<input type="number" id="calcPeople" value="2" min="1" max="20" /></label>
+        <label>Kaç gün?<input type="number" id="calcDays" value="5" min="1" max="30" /></label>
         <label>Konaklama
-          <select id="calcRoom">
-            <option value="0">Standart Kabin · +₺0</option>
-            <option value="500000">VIP Kabin · +₺500.000</option>
-            <option value="1200000">Süit Kabin · +₺1.200.000</option>
+          <select id="calcHotel">
+            <option value="0">3 Yıldız · +₺0</option>
+            <option value="2500">4 Yıldız · +₺2.500/gece</option>
+            <option value="5000">5 Yıldız · +₺5.000/gece</option>
+            <option value="10000">Lüks Resort · +₺10.000/gece</option>
           </select>
         </label>
         <label>Ekstralar
           <div class="calc__extras">
-            <label class="chk"><input type="checkbox" data-price="150000" /> 🚁 Helikopter Transfer</label>
-            <label class="chk"><input type="checkbox" data-price="75000" /> 🍽️ Gurme Şef Menüsü</label>
-            <label class="chk"><input type="checkbox" data-price="200000" /> 📸 Profesyonel Fotoğraf</label>
-            <label class="chk"><input type="checkbox" data-price="500000" /> 🎓 Eğitim Kampı</label>
+            <label class="chk"><input type="checkbox" data-price="3500" /> ✈️ Business Uçuş</label>
+            <label class="chk"><input type="checkbox" data-price="2000" /> 🚗 VIP Transfer</label>
+            <label class="chk"><input type="checkbox" data-price="1500" /> 🍽️ Tam Pansiyon</label>
+            <label class="chk"><input type="checkbox" data-price="5000" /> 📸 Fotoğrafçı</label>
+            <label class="chk"><input type="checkbox" data-price="1200" /> 🛡️ Seyahat Sigortası</label>
           </div>
         </label>
         <button class="btn btn--primary btn--lg" id="calcBtn">Hesapla</button>
@@ -209,19 +130,20 @@
         <div class="calc__result-label">Toplam Tutar</div>
         <div class="calc__result-price" id="calcPrice">₺0</div>
         <div class="calc__result-extra" id="calcExtra">Kişi başı: ₺0</div>
+        <div class="calc__result-currency" id="calcCurrency">≈ $0 · €0</div>
         <button class="btn btn--primary" id="calcBook">Rezervasyon Yap</button>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section--alt" id="timeline">
+<section class="section section--alt" id="packages">
   <div class="container">
     <div class="section__head">
-      <span class="eyebrow">Tarihçe</span>
-      <h2>Yolculuğumuz</h2>
+      <span class="eyebrow">Paketler</span>
+      <h2>Size uygun <span class="grad">paketi seçin</span></h2>
     </div>
-    <div class="timeline" id="timelineList"></div>
+    <div class="pricing" id="packageGrid"></div>
   </div>
 </section>
 
@@ -229,69 +151,29 @@
   <div class="container">
     <div class="section__head">
       <span class="eyebrow">Galeri</span>
-      <h2>Gerçek <span class="grad">fotoğraflar</span></h2>
+      <h2>Gezi <span class="grad">fotoğrafları</span></h2>
     </div>
     <div class="gallery" id="galleryGrid"></div>
   </div>
 </section>
 
-<section class="section section--alt" id="testimonials">
+<section class="section section--alt" id="reviews">
   <div class="container">
     <div class="section__head">
       <span class="eyebrow">Yorumlar</span>
-      <h2>Turistler ne <span class="grad">diyor?</span></h2>
+      <h2>Müşterilerimiz ne <span class="grad">diyor?</span></h2>
     </div>
-    <div class="testimonials" id="testimonialsGrid"></div>
+    <div class="testimonials" id="reviewGrid"></div>
   </div>
 </section>
 
-<section class="section" id="news">
-  <div class="container">
-    <div class="section__head">
-      <span class="eyebrow">Haberler</span>
-      <h2>Son <span class="grad">gelişmeler</span></h2>
-    </div>
-    <div class="news-grid" id="newsGrid"></div>
-  </div>
-</section>
-
-<section class="section section--alt" id="pricing">
-  <div class="container">
-    <div class="section__head">
-      <span class="eyebrow">Paketler</span>
-      <h2>Fiyat <span class="grad">seçenekleri</span></h2>
-    </div>
-    <div class="pricing" id="pricingGrid"></div>
-  </div>
-</section>
-
-<section class="section" id="certs">
-  <div class="container">
-    <div class="section__head">
-      <span class="eyebrow">Güvenlik</span>
-      <h2>Uluslararası <span class="grad">sertifikalar</span></h2>
-    </div>
-    <div class="certs" id="certsGrid"></div>
-  </div>
-</section>
-
-<section class="section section--alt" id="faq">
+<section class="section" id="faq">
   <div class="container container--narrow">
     <div class="section__head">
       <span class="eyebrow">SSS</span>
       <h2>Sıkça sorulan <span class="grad">sorular</span></h2>
     </div>
     <div class="faq" id="faqList"></div>
-  </div>
-</section>
-
-<section class="section" id="quiz">
-  <div class="container container--narrow">
-    <div class="section__head">
-      <span class="eyebrow">Quiz</span>
-      <h2>Uzay <span class="grad">bilginizi</span> test edin</h2>
-    </div>
-    <div class="quiz" id="quizBox"></div>
   </div>
 </section>
 
@@ -303,9 +185,9 @@
     </div>
     <div class="contact-grid">
       <div class="contact-card"><div class="contact-card__icon">📞</div><h3>Telefon</h3><p>+90 (212) 555 00 00</p></div>
-      <div class="contact-card"><div class="contact-card__icon">✉️</div><h3>E-posta</h3><p>info@kozmikseyahat.com</p></div>
-      <div class="contact-card"><div class="contact-card__icon">📍</div><h3>Merkez</h3><p>Cape Canaveral, FL</p></div>
-      <div class="contact-card"><div class="contact-card__icon">🛰️</div><h3>Uydu Ofis</h3><p>Alçak Dünya Yörüngesi</p></div>
+      <div class="contact-card"><div class="contact-card__icon">✉️</div><h3>E-posta</h3><p>info@dunyaturu.com</p></div>
+      <div class="contact-card"><div class="contact-card__icon">📍</div><h3>Merkez</h3><p>İstiklal Cad. No:42 Beyoğlu/İstanbul</p></div>
+      <div class="contact-card"><div class="contact-card__icon">🕐</div><h3>Çalışma Saatleri</h3><p>Her gün 09:00 - 21:00</p></div>
     </div>
   </div>
 </section>
@@ -313,11 +195,10 @@
 <section class="section cta-section">
   <div class="container">
     <div class="cta">
-      <div class="cta__stars"></div>
-      <h2>Tarih yazmaya hazır mısın?</h2>
-      <p>İlk 100 rezervasyona %25 indirim ve ücretsiz eğitim kampı</p>
+      <h2>Hayalinizdeki tatile hazır mısınız?</h2>
+      <p>Erken rezervasyonda %25 indirim + ücretsiz sigorta</p>
       <div class="cta__actions">
-        <button class="btn btn--primary btn--lg" id="ctaBook">🚀 Hemen Rezervasyon</button>
+        <button class="btn btn--primary btn--lg" id="ctaBook">🌍 Hemen Rezervasyon</button>
         <button class="btn btn--ghost btn--lg" id="shareBtn">📤 Paylaş</button>
       </div>
     </div>
@@ -328,34 +209,32 @@
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__logo">🌌 KOZMİK<span class="grad">SEYAHAT</span></div>
-        <p class="footer__text">Dünyanın ilk ticari uzay turizmi ajansı.</p>
+        <div class="footer__logo">🌍 DÜNYA<span class="grad">TURU</span></div>
+        <p class="footer__text">15 yıllık deneyimle 45 ülkede, 200+ şehirde sizi bekliyoruz.</p>
         <div class="footer__socials"><a href="#">𝕏</a><a href="#">📸</a><a href="#">💼</a><a href="#">▶️</a></div>
       </div>
-      <div><h4>Keşfet</h4><a href="#destinations">Destinasyonlar</a><a href="#fleet">Araçlar</a><a href="#crew">Ekip</a><a href="#gallery">Galeri</a></div>
-      <div><h4>Bilgi</h4><a href="#faq">SSS</a><a href="#certs">Sertifikalar</a><a href="#">Basın</a><a href="#">Kariyer</a></div>
-      <div><h4>Newsletter</h4><p class="footer__text">Uzay haberleri</p><form class="newsletter" id="newsletterForm"><input type="email" placeholder="E-posta" required /><button type="submit">➤</button></form></div>
+      <div><h4>Keşfet</h4><a href="#destinations">Destinasyonlar</a><a href="#tours">Turlar</a><a href="#packages">Paketler</a><a href="#gallery">Galeri</a></div>
+      <div><h4>Kurumsal</h4><a href="#faq">SSS</a><a href="#" id="aboutLink">Hakkımızda</a><a href="#" id="careerLink">Kariyer</a><a href="#" id="pressLink">Basın</a></div>
+      <div><h4>Bülten</h4><p class="footer__text">Fırsatlardan haberdar olun</p><form class="newsletter" id="newsletterForm"><input type="email" placeholder="E-posta" required /><button type="submit">➤</button></form></div>
     </div>
-    <div class="footer__bottom"><span>© 2027 Kozmik Seyahat</span><span>Türkiye'den sevgiyle 🇹🇷</span></div>
+    <div class="footer__bottom"><span>© 2027 Dünya Turu · TÜRSAB A-1234</span><span>Türkiye'den sevgiyle 🇹🇷</span></div>
   </div>
 </footer>
 
 <button class="fab fab--chat" id="fabChat" title="Canlı Destek">💬</button>
 <button class="fab fab--top" id="fabTop" title="Yukarı">⬆️</button>
-<button class="fab fab--fav" id="fabFav" title="Favoriler">❤️</button>
 
 <div class="chat" id="chat">
   <div class="chat__head"><span>💬 Canlı Destek</span><button id="chatClose" type="button">✕</button></div>
-  <div class="chat__body" id="chatBody"><div class="chat__msg chat__msg--bot">Merhaba! Uzay yolculuğu hakkında sorularınızı yanıtlayabilirim. 🚀</div></div>
+  <div class="chat__body" id="chatBody"><div class="chat__msg chat__msg--bot">Merhaba! Hangi destinasyonu merak ediyorsunuz? 🌍</div></div>
   <div class="chat__input"><input type="text" id="chatInput" placeholder="Mesaj..." /><button id="chatSend" type="button">➤</button></div>
 </div>
 
 <div class="modal" id="modal"><div class="modal__content"><button class="modal__close" id="modalClose" type="button">✕</button><div id="modalBody"></div></div></div>
 <div class="toast" id="toast"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
-<script src="script.js?v=100"></script>
-<script src="script2.js?v=100"></script>
-<script src="script3.js?v=100"></script>
+<script src="script.js?v=1"></script>
+<script src="script2.js?v=1"></script>
+<script src="script3.js?v=1"></script>
 </body>
-  </html>
+</html>
