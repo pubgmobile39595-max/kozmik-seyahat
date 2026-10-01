@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="tr" data-theme="dark">
+<html lang="tr" data-theme="light">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dünya Turu — Seyahat Acentesi</title>
-<meta name="description" content="Dünya Turu - Hayalinizdeki yerlere gidin. Kapadokya, Paris, Tokyo, Dubai ve daha fazlası." />
-<meta name="theme-color" content="#0a1a2e" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='80' text-anchor='middle'>🌍</text></svg>" />
+<title>MeloniTour — Hayalinizdeki Tatil, Bizimle Gerçek</title>
+<meta name="description" content="MeloniTour — 1998'den bu yana profesyonel seyahat acentesi. Yurt içi ve yurt dışı turlar, vize danışmanlığı, grup ve özel turlar." />
+<meta name="theme-color" content="#0a4d68" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='80' text-anchor='middle'>🌴</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=1" />
 <link rel="stylesheet" href="style-extra.css?v=1" />
 </head>
@@ -17,30 +17,30 @@
 
 <div class="loader" id="loader">
   <div class="loader__inner">
-    <div class="loader__globe">🌍</div>
-    <div class="loader__text">Dünya Turu</div>
+    <div class="loader__icon">🌴</div>
+    <div class="loader__text">MeloniTour</div>
     <div class="loader__bar"><div class="loader__fill" id="loaderFill"></div></div>
-    <div class="loader__pct" id="loaderPct">0%</div>
   </div>
 </div>
 
 <nav class="nav" id="nav">
   <div class="container nav__inner">
     <a href="#" class="nav__logo">
-      <span class="nav__logo-icon">🌍</span>
-      <span class="nav__logo-text">DÜNYA<span class="grad">TURU</span></span>
+      <span class="nav__logo-icon">🌴</span>
+      <span class="nav__logo-text">MELONI<span class="grad">TOUR</span></span>
     </a>
     <div class="nav__links">
-      <a href="#destinations">Destinasyonlar</a>
+      <a href="#about">Hakkımızda</a>
       <a href="#tours">Turlar</a>
-      <a href="#packages">Paketler</a>
+      <a href="#destinations">Destinasyonlar</a>
+      <a href="#visa">Vize</a>
       <a href="#reviews">Yorumlar</a>
-      <a href="#faq">SSS</a>
+      <a href="#contact">İletişim</a>
     </div>
     <div class="nav__actions">
       <button class="icon-btn" id="langBtn" title="Dil">TR</button>
-      <button class="icon-btn" id="themeBtn" title="Tema">☀️</button>
-      <button class="btn btn--primary btn--sm" id="bookBtn">Rezervasyon</button>
+      <button class="icon-btn" id="themeBtn" title="Tema">🌙</button>
+      <a href="https://wa.me/905550000000" target="_blank" class="btn btn--whatsapp btn--sm">💬 WhatsApp</a>
     </div>
   </div>
 </nav>
@@ -49,50 +49,83 @@
   <div class="hero__bg"></div>
   <div class="hero__overlay"></div>
   <div class="container hero__inner">
-    <div class="hero__badge"><span class="dot"></span> 45 Ülke · 200+ Şehir · 7/24 Destek</div>
-    <h1 class="hero__title">
-      <span class="hero__title-line">Dünyayı</span>
-      <span class="hero__title-line grad">keşfet</span>
-      <span class="hero__title-line">hayalini</span>
-      <span class="hero__title-line">yaşa</span>
-    </h1>
-    <p class="hero__sub">Kapadokya'dan Paris'e, Tokyo'dan Dubai'ye. Hayalinizdeki tüm destinasyonlar, uygun fiyatlarla. Uzman rehberler eşliğinde unutulmaz bir yolculuk.</p>
-    <div class="hero__search">
-      <input type="text" id="heroSearch" placeholder="Nereye gitmek istersin? (Paris, Tokyo, Kapadokya...)" />
-      <button class="btn btn--primary" id="heroSearchBtn">🔍 Ara</button>
-    </div>
+    <div class="hero__badge">⭐ 1998'den bu yana 26 yıllık deneyim</div>
+    <h1 class="hero__title">Hayalinizdeki tatil,<br><span class="grad">bizimle gerçek</span></h1>
+    <p class="hero__sub">Yurt içi ve yurt dışı turlar, vize danışmanlığı, grup ve özel turlar. Uzman rehberler eşliğinde unutulmaz bir yolculuk sizi bekliyor.</p>
     <div class="hero__cta">
-      <a href="#destinations" class="btn btn--primary btn--lg">🌟 Turları Keşfet</a>
-      <a href="#packages" class="btn btn--ghost btn--lg">📦 Paketleri Gör</a>
+      <a href="#tours" class="btn btn--primary btn--lg">🌟 Turları Keşfet</a>
+      <a href="#contact" class="btn btn--ghost btn--lg">📞 Bize Ulaşın</a>
     </div>
     <div class="hero__stats">
       <div><strong class="counter" data-target="45000">0</strong><span>Mutlu Müşteri</span></div>
+      <div><strong class="counter" data-target="26">0</strong><span>Yıllık Deneyim</span></div>
       <div><strong class="counter" data-target="45">0</strong><span>Ülke</span></div>
-      <div><strong class="counter" data-target="200">0</strong><span>Şehir</span></div>
-      <div><strong class="counter" data-target="15">0</strong><span>Yıllık Deneyim</span></div>
+      <div><strong class="counter" data-target="98">0</strong><span>% Memnuniyet</span></div>
     </div>
   </div>
 </section>
 
-<section class="section" id="destinations">
+<section class="section" id="about">
+  <div class="container">
+    <div class="about">
+      <div class="about__text">
+        <span class="eyebrow">Hakkımızda</span>
+        <h2>Çeyrek asırlık <span class="grad">tecrübe</span></h2>
+        <p><strong>MeloniTour</strong>, 1998 yılında <strong>Yılmaz Çalışkan</strong> tarafından kurulmuştur. Kurulduğumuz günden bu yana, on binlerce müşterimizi hayallerindeki tatillerle buluşturmanın gururunu yaşıyoruz.</p>
+        <p>Deneyimli ekibimiz, uzman rehberlerimiz ve geniş iş ortaklarımızla yurt içi ve yurt dışı turlar, otel rezervasyonları, uçak biletleri ve vize danışmanlığı hizmeti sunuyoruz.</p>
+        <p><em>"Müşteri memnuniyeti bizim için bir hedef değil, işimizin temelidir."</em> — <strong>Yılmaz Çalışkan</strong>, Kurucu</p>
+        <div class="about__badges">
+          <div class="badge-item"><span>🏆</span><span>TÜRSAB A-1234</span></div>
+          <div class="badge-item"><span>✈️</span><span>IATA Onaylı</span></div>
+          <div class="badge-item"><span>🛡️</span><span>Sigortalı Turlar</span></div>
+        </div>
+      </div>
+      <div class="about__img"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="destinations">
   <div class="container">
     <div class="section__head">
       <span class="eyebrow">Destinasyonlar</span>
       <h2>Popüler <span class="grad">yerler</span></h2>
-      <p class="section__lead">En çok tercih edilen 8 destinasyon</p>
+      <p class="section__lead">Yurt içi ve yurt dışı en çok tercih edilen destinasyonlar</p>
     </div>
     <div class="destinations" id="destGrid"></div>
   </div>
 </section>
 
-<section class="section section--alt" id="tours">
+<section class="section" id="tours">
   <div class="container">
     <div class="section__head">
-      <span class="eyebrow">Turlar</span>
-      <h2>Öne çıkan <span class="grad">turlarımız</span></h2>
-      <p class="section__lead">Rehberli, her şey dahil, garantili</p>
+      <span class="eyebrow">Turlarımız</span>
+      <h2>Size özel <span class="grad">tur paketleri</span></h2>
+      <p class="section__lead">Yurt içi, yurt dışı, grup ve özel turlar</p>
+    </div>
+    <div class="tour-filter" id="tourFilter">
+      <button class="filter-btn active" data-cat="all">📋 Tümü</button>
+      <button class="filter-btn" data-cat="yurtici">🇹🇷 Yurt İçi</button>
+      <button class="filter-btn" data-cat="yurtdisi">✈️ Yurt Dışı</button>
+      <button class="filter-btn" data-cat="grup">👥 Grup</button>
+      <button class="filter-btn" data-cat="ozel">🎯 Özel</button>
     </div>
     <div class="tours" id="tourGrid"></div>
+  </div>
+</section>
+
+<section class="section section--alt" id="visa">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">Vize Danışmanlığı</span>
+      <h2>Vize <span class="grad">hizmetlerimiz</span></h2>
+      <p class="section__lead">Uzman ekibimizle vize sürecinizi kolaylaştırıyoruz</p>
+    </div>
+    <div class="visa-grid" id="visaGrid"></div>
+    <div class="visa-cta">
+      <p>💡 Vize başvurunuzla ilgili tüm sorularınız için bize ulaşın</p>
+      <a href="https://wa.me/905550000000?text=Vize%20danışmanlığı%20hakkında%20bilgi%20almak%20istiyorum" target="_blank" class="btn btn--whatsapp btn--lg">💬 WhatsApp'tan Sor</a>
+    </div>
   </div>
 </section>
 
@@ -109,19 +142,20 @@
         <label>Kaç gün?<input type="number" id="calcDays" value="5" min="1" max="30" /></label>
         <label>Konaklama
           <select id="calcHotel">
-            <option value="0">3 Yıldız · +₺0</option>
-            <option value="2500">4 Yıldız · +₺2.500/gece</option>
-            <option value="5000">5 Yıldız · +₺5.000/gece</option>
-            <option value="10000">Lüks Resort · +₺10.000/gece</option>
+            <option value="0">3 Yıldız Otel</option>
+            <option value="1500">4 Yıldız Otel (+₺1.500/gece)</option>
+            <option value="3000">5 Yıldız Otel (+₺3.000/gece)</option>
+            <option value="6000">Lüks Resort (+₺6.000/gece)</option>
           </select>
         </label>
         <label>Ekstralar
           <div class="calc__extras">
-            <label class="chk"><input type="checkbox" data-price="3500" /> ✈️ Business Uçuş</label>
-            <label class="chk"><input type="checkbox" data-price="2000" /> 🚗 VIP Transfer</label>
-            <label class="chk"><input type="checkbox" data-price="1500" /> 🍽️ Tam Pansiyon</label>
-            <label class="chk"><input type="checkbox" data-price="5000" /> 📸 Fotoğrafçı</label>
-            <label class="chk"><input type="checkbox" data-price="1200" /> 🛡️ Seyahat Sigortası</label>
+            <label class="chk"><input type="checkbox" data-price="2500" /> ✈️ Business Uçuş</label>
+            <label class="chk"><input type="checkbox" data-price="1000" /> 🚗 VIP Transfer</label>
+            <label class="chk"><input type="checkbox" data-price="800" /> 🍽️ Tam Pansiyon</label>
+            <label class="chk"><input type="checkbox" data-price="3000" /> 📸 Fotoğrafçı</label>
+            <label class="chk"><input type="checkbox" data-price="500" /> 🛡️ Seyahat Sigortası</label>
+            <label class="chk"><input type="checkbox" data-price="2000" /> 🗣️ Özel Rehber</label>
           </div>
         </label>
         <button class="btn btn--primary btn--lg" id="calcBtn">Hesapla</button>
@@ -137,17 +171,7 @@
   </div>
 </section>
 
-<section class="section section--alt" id="packages">
-  <div class="container">
-    <div class="section__head">
-      <span class="eyebrow">Paketler</span>
-      <h2>Size uygun <span class="grad">paketi seçin</span></h2>
-    </div>
-    <div class="pricing" id="packageGrid"></div>
-  </div>
-</section>
-
-<section class="section" id="gallery">
+<section class="section section--alt" id="gallery">
   <div class="container">
     <div class="section__head">
       <span class="eyebrow">Galeri</span>
@@ -157,17 +181,17 @@
   </div>
 </section>
 
-<section class="section section--alt" id="reviews">
+<section class="section" id="reviews">
   <div class="container">
     <div class="section__head">
-      <span class="eyebrow">Yorumlar</span>
-      <h2>Müşterilerimiz ne <span class="grad">diyor?</span></h2>
+      <span class="eyebrow">Müşteri Yorumları</span>
+      <h2>Bizimle seyahat edenler <span class="grad">ne diyor?</span></h2>
     </div>
     <div class="testimonials" id="reviewGrid"></div>
   </div>
 </section>
 
-<section class="section" id="faq">
+<section class="section section--alt" id="faq">
   <div class="container container--narrow">
     <div class="section__head">
       <span class="eyebrow">SSS</span>
@@ -177,17 +201,33 @@
   </div>
 </section>
 
-<section class="section section--alt" id="contact">
+<section class="section" id="contact">
   <div class="container">
     <div class="section__head">
       <span class="eyebrow">İletişim</span>
       <h2>Bize <span class="grad">ulaşın</span></h2>
     </div>
     <div class="contact-grid">
-      <div class="contact-card"><div class="contact-card__icon">📞</div><h3>Telefon</h3><p>+90 (212) 555 00 00</p></div>
-      <div class="contact-card"><div class="contact-card__icon">✉️</div><h3>E-posta</h3><p>info@dunyaturu.com</p></div>
-      <div class="contact-card"><div class="contact-card__icon">📍</div><h3>Merkez</h3><p>İstiklal Cad. No:42 Beyoğlu/İstanbul</p></div>
-      <div class="contact-card"><div class="contact-card__icon">🕐</div><h3>Çalışma Saatleri</h3><p>Her gün 09:00 - 21:00</p></div>
+      <a href="tel:+902125550000" class="contact-card">
+        <div class="contact-card__icon">📞</div>
+        <h3>Telefon</h3>
+        <p>+90 (212) 555 00 00</p>
+      </a>
+      <a href="https://wa.me/905550000000" target="_blank" class="contact-card">
+        <div class="contact-card__icon">💬</div>
+        <h3>WhatsApp</h3>
+        <p>7/24 Hızlı Yanıt</p>
+      </a>
+      <a href="mailto:info@melonitour.com" class="contact-card">
+        <div class="contact-card__icon">✉️</div>
+        <h3>E-posta</h3>
+        <p>info@melonitour.com</p>
+      </a>
+      <a href="https://maps.google.com/?q=Istanbul" target="_blank" class="contact-card">
+        <div class="contact-card__icon">📍</div>
+        <h3>Ofis</h3>
+        <p>İstiklal Cad. No:42 Beyoğlu/İstanbul</p>
+      </a>
     </div>
   </div>
 </section>
@@ -196,10 +236,10 @@
   <div class="container">
     <div class="cta">
       <h2>Hayalinizdeki tatile hazır mısınız?</h2>
-      <p>Erken rezervasyonda %25 indirim + ücretsiz sigorta</p>
+      <p>Erken rezervasyonda %25 indirim + ücretsiz seyahat sigortası</p>
       <div class="cta__actions">
-        <button class="btn btn--primary btn--lg" id="ctaBook">🌍 Hemen Rezervasyon</button>
-        <button class="btn btn--ghost btn--lg" id="shareBtn">📤 Paylaş</button>
+        <a href="https://wa.me/905550000000?text=Rezervasyon%20yapmak%20istiyorum" target="_blank" class="btn btn--whatsapp btn--lg">💬 WhatsApp'tan Rezervasyon</a>
+        <a href="tel:+902125550000" class="btn btn--primary btn--lg">📞 Hemen Ara</a>
       </div>
     </div>
   </div>
@@ -209,26 +249,28 @@
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__logo">🌍 DÜNYA<span class="grad">TURU</span></div>
-        <p class="footer__text">15 yıllık deneyimle 45 ülkede, 200+ şehirde sizi bekliyoruz.</p>
-        <div class="footer__socials"><a href="#">𝕏</a><a href="#">📸</a><a href="#">💼</a><a href="#">▶️</a></div>
+        <div class="footer__logo">🌴 MELONI<span class="grad">TOUR</span></div>
+        <p class="footer__text">1998'den bu yana güvenilir seyahat acentesi. Yurt içi ve yurt dışı turlar, vize danışmanlığı.</p>
+        <div class="footer__socials">
+          <a href="#" title="Instagram">📸</a>
+          <a href="#" title="Facebook">📘</a>
+          <a href="#" title="YouTube">▶️</a>
+          <a href="#" title="Twitter">𝕏</a>
+        </div>
       </div>
-      <div><h4>Keşfet</h4><a href="#destinations">Destinasyonlar</a><a href="#tours">Turlar</a><a href="#packages">Paketler</a><a href="#gallery">Galeri</a></div>
-      <div><h4>Kurumsal</h4><a href="#faq">SSS</a><a href="#" id="aboutLink">Hakkımızda</a><a href="#" id="careerLink">Kariyer</a><a href="#" id="pressLink">Basın</a></div>
-      <div><h4>Bülten</h4><p class="footer__text">Fırsatlardan haberdar olun</p><form class="newsletter" id="newsletterForm"><input type="email" placeholder="E-posta" required /><button type="submit">➤</button></form></div>
+      <div><h4>Keşfet</h4><a href="#tours">Turlar</a><a href="#destinations">Destinasyonlar</a><a href="#visa">Vize</a><a href="#gallery">Galeri</a></div>
+      <div><h4>Kurumsal</h4><a href="#about">Hakkımızda</a><a href="#faq">SSS</a><a href="#" id="careerLink">Kariyer</a><a href="#" id="pressLink">Basın</a></div>
+      <div><h4>Yasal</h4><a href="#" id="kvkkLink">KVKK</a><a href="#" id="privacyLink">Gizlilik</a><a href="#" id="termsLink">Mesafeli Satış</a><a href="#" id="cookieLink">Çerezler</a></div>
     </div>
-    <div class="footer__bottom"><span>© 2027 Dünya Turu · TÜRSAB A-1234</span><span>Türkiye'den sevgiyle 🇹🇷</span></div>
+    <div class="footer__bottom">
+      <span>© 2027 MeloniTour · TÜRSAB A-1234 · IATA Onaylı</span>
+      <span>Yılmaz Çalışkan liderliğinde 🇹🇷</span>
+    </div>
   </div>
 </footer>
 
-<button class="fab fab--chat" id="fabChat" title="Canlı Destek">💬</button>
+<a href="https://wa.me/905550000000" target="_blank" class="fab fab--whatsapp" title="WhatsApp">💬</a>
 <button class="fab fab--top" id="fabTop" title="Yukarı">⬆️</button>
-
-<div class="chat" id="chat">
-  <div class="chat__head"><span>💬 Canlı Destek</span><button id="chatClose" type="button">✕</button></div>
-  <div class="chat__body" id="chatBody"><div class="chat__msg chat__msg--bot">Merhaba! Hangi destinasyonu merak ediyorsunuz? 🌍</div></div>
-  <div class="chat__input"><input type="text" id="chatInput" placeholder="Mesaj..." /><button id="chatSend" type="button">➤</button></div>
-</div>
 
 <div class="modal" id="modal"><div class="modal__content"><button class="modal__close" id="modalClose" type="button">✕</button><div id="modalBody"></div></div></div>
 <div class="toast" id="toast"></div>
