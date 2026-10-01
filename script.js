@@ -4,16 +4,15 @@ var $=function(s){return document.querySelector(s)};
 // LOADER
 var pct=0;
 var li=setInterval(function(){
-  pct+=Math.random()*15+5;
+  pct+=Math.random()*15+8;
   if(pct>=100){pct=100;clearInterval(li);setTimeout(function(){var l=$('#loader');if(l)l.classList.add('hide')},400)}
   var f=$('#loaderFill');if(f)f.style.width=pct+'%';
-  var p=$('#loaderPct');if(p)p.textContent=Math.floor(pct)+'%';
-},150);
+},120);
 
 // NAV SCROLL
 var nav=$('#nav');
 window.addEventListener('scroll',function(){
-  if(nav)nav.classList.toggle('nav--scrolled',window.scrollY>50);
+  if(nav)nav.classList.toggle('nav--scrolled',window.scrollY>30);
   var top=$('#fabTop');
   if(top)top.classList.toggle('show',window.scrollY>400);
 });
@@ -36,7 +35,7 @@ var ob=new IntersectionObserver(function(en){
 },{threshold:0.5});
 for(var i=0;i<counters.length;i++)ob.observe(counters[i]);
 
-// SCROLL REVEAL
+// REVEAL
 var rob=new IntersectionObserver(function(en){
   en.forEach(function(e){
     if(e.isIntersecting){e.target.classList.add('visible');rob.unobserve(e.target)}
@@ -46,15 +45,15 @@ var rob=new IntersectionObserver(function(en){
 // TEMA
 var tb=$('#themeBtn');
 if(tb){
-  var saved=localStorage.getItem('dt_theme')||'dark';
+  var saved=localStorage.getItem('mt_theme')||'light';
   document.documentElement.setAttribute('data-theme',saved);
-  tb.textContent=saved==='dark'?'☀️':'🌙';
+  tb.textContent=saved==='light'?'🌙':'☀️';
   tb.onclick=function(){
-    var cur=document.documentElement.getAttribute('data-theme')||'dark';
-    var n=cur==='dark'?'light':'dark';
+    var cur=document.documentElement.getAttribute('data-theme')||'light';
+    var n=cur==='light'?'dark':'light';
     document.documentElement.setAttribute('data-theme',n);
-    localStorage.setItem('dt_theme',n);
-    tb.textContent=n==='dark'?'☀️':'🌙';
+    localStorage.setItem('mt_theme',n);
+    tb.textContent=n==='light'?'🌙':'☀️';
   };
 }
 
@@ -62,9 +61,9 @@ if(tb){
 var lb=$('#langBtn');
 if(lb)lb.onclick=function(){
   var cur=lb.textContent;
-  var n=cur==='TR'?'EN':cur==='EN'?'DE':'TR';
+  var n=cur==='TR'?'EN':cur==='EN'?'RU':'TR';
   lb.textContent=n;
-  var msg=n==='TR'?'Türkçe':n==='EN'?'English':'Deutsch';
+  var msg=n==='TR'?'Türkçe':n==='EN'?'English':'Русский';
   showToast('🌐 Dil: '+msg);
 };
 
@@ -74,7 +73,7 @@ function showToast(m){
   t.textContent=m;t.classList.add('show');
   clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show')},2500);
 }
-window.DT={toast:showToast,$:$,revealObs:rob};
+window.MT={toast:showToast,$:$,revealObs:rob};
 
 // YUKARI
 var ft=$('#fabTop');
